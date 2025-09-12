@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  min-height: 100vh;
+  @apply bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300;
+  font-family: 'Inter', sans-serif;
+}

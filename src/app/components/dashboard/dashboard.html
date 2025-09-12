@@ -1,0 +1,64 @@
+<app-header (menuClick)="toggleSidebar()"></app-header>
+
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+  <div class="fixed inset-0 z-40 md:hidden" [class.pointer-events-none]="!sidebarOpen">
+    <div
+      class="absolute inset-0 bg-black transition-opacity duration-300"
+      [class.opacity-0]="!sidebarOpen"
+      [class.opacity-50]="sidebarOpen"
+      (click)="closeSidebar()"
+    ></div>
+
+    <div
+      class="absolute left-0 top-0 bottom-0 w-64 bg-slate-900 text-white transform transition-transform duration-300 ease-in-out"
+      [class.-translate-x-full]="!sidebarOpen"
+      [class.translate-x-0]="sidebarOpen"
+      (click)="$event.stopPropagation()"
+    >
+      <app-side-bar></app-side-bar>
+    </div>
+  </div>
+
+  <div class="lg:col-span-2 flex flex-col gap-6">
+    <div class="glass p-6">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-bold">Overview</h2>
+        <div class="text-sm text-slate-600">Quick summary of the UI</div>
+      </div>
+
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        @for (item of items; track item.id) {
+        <app-card [item]="item"></app-card>
+        }
+      </div>
+    </div>
+
+    <div class="glass p-6">
+      <h3 class="font-semibold mb-3">Recent Activity</h3>
+      <ul class="space-y-3 text-sm text-slate-700">
+        @for (i of items; track i.id) {
+        <li class="flex items-center justify-between">
+          <div>{{ i.title }} — {{ i.value }}</div>
+          <div class="flex gap-2">
+            <button class="px-3 py-1 rounded-md border" (click)="bump(i)">Boost</button>
+            <button class="px-3 py-1 rounded-md border">Details</button>
+          </div>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <aside class="glass p-6">
+    <h3 class="font-semibold">Insights</h3>
+    <p class="mt-3 text-sm text-slate-600">
+      Short, actionable insights coming from your data. Customize to match PDF layout.
+    </p>
+
+    <div class="mt-4 grid grid-cols-1 gap-3">
+      <div class="p-3 rounded-lg border text-sm">Tip: Use filters to narrow leads</div>
+      <div class="p-3 rounded-lg border text-sm">Tip: Export reports to CSV</div>
+      <div class="p-3 rounded-lg border text-sm">Tip: Check conversion funnel</div>
+    </div>
+  </aside>
+</section>

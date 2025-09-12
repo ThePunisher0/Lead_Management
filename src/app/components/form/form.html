@@ -1,0 +1,59 @@
+<div class="max-w-md mx-auto bg-white p-10 rounded-xl shadow-md border border-slate-200">
+  <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-3">✨ Lead Form</h2>
+
+  <form [formGroup]="leadForm" (ngSubmit)="onSubmit()" class="space-y-4">
+    <div>
+      <label class="block text-sm text-slate-600 mb-1">Name</label>
+      <input
+        formControlName="name"
+        class="w-full border border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-200 px-3 py-2 rounded-md text-sm transition"
+        placeholder="Enter your name"
+      />
+      @if (f.name.touched && f.name.invalid) {
+      <small class="text-red-500 text-xs">⚠️ Name is required</small>
+      }
+    </div>
+
+    <div>
+      <label class="block text-sm text-slate-600 mb-1">Email</label>
+      <input
+        type="email"
+        formControlName="email"
+        class="w-full border border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-200 px-3 py-2 rounded-md text-sm transition"
+        placeholder="you@email.com"
+      />
+      @if (f.email.touched && f.email.invalid) {
+      <small class="text-red-500 text-xs">⚠️ Enter a valid email</small>
+      }
+    </div>
+
+    <div>
+      <label class="block text-sm text-slate-600 mb-1">Phone</label>
+      <input
+        formControlName="phone"
+        class="w-full border border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-200 px-3 py-2 rounded-md text-sm transition"
+        placeholder="10-digit number"
+      />
+      @if (f.phone.touched && f.phone.invalid) {
+      <small class="text-red-500 text-xs">⚠️ Must be 10 digits</small>
+      }
+    </div>
+
+    <div>
+      <label class="block text-sm text-slate-600 mb-1">Message</label>
+      <textarea
+        rows="2"
+        formControlName="message"
+        class="w-full border border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-200 px-3 py-2 rounded-md text-sm transition resize-none"
+        placeholder="Write your message..."
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2.5 rounded-md shadow-sm transition"
+    >
+      🚀 Submit
+    </button>
+  </form>
+</div>

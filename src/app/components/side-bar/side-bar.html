@@ -1,0 +1,25 @@
+<aside class="w-64 h-full bg-slate-900 text-white flex flex-col gap-6 p-6">
+  <div class="flex items-center gap-3">
+    <div class="w-12 h-12 bg-white/10 rounded-md flex items-center justify-center text-xl">🔷</div>
+    <div>
+      <div class="text-lg font-semibold">Quantum Inc.</div>
+      <div class="text-xs text-slate-300">Looping Ideas Into Impact</div>
+    </div>
+  </div>
+
+  <nav class="flex-1">
+    <ul class="flex flex-col gap-2">
+      @for (item of menu; track $index) {
+      <li class="p-3 rounded-lg hover:bg-white/6 cursor-pointer flex items-center gap-3">
+        <span class="text-xl">{{ item.icon }}</span>
+        <span>{{ item.label }}</span>
+      </li>
+      }
+    </ul>
+  </nav>
+
+  <div class="text-xs text-slate-300">
+    <div>Logged in as</div>
+    <div class="font-medium">Frontend Dev</div>
+  </div>
+</aside>

@@ -1,0 +1,141 @@
+<nav class="bg-slate-900 text-white px-4 sm:px-6 py-2">
+  <div class="flex justify-between items-center">
+    <a routerLink="/home" class="text-lg font-semibold hover:text-accent transition-colors">
+      Quantum Inc.
+    </a>
+
+    <ul class="hidden md:flex gap-6 items-center">
+      <li>
+        <a
+          routerLink="/home"
+          routerLinkActive="text-accent"
+          class="hover:text-accent transition-colors"
+          >Home</a
+        >
+      </li>
+      <!-- <li><a routerLink="/dashboard" routerLinkActive="text-accent" class="hover:text-accent transition-colors">Dashboard</a></li> -->
+      <li>
+        <a
+          routerLink="/form"
+          routerLinkActive="text-accent"
+          class="hover:text-accent transition-colors"
+          >Form</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/details"
+          routerLinkActive="text-accent"
+          class="hover:text-accent transition-colors"
+          >Details</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/home"
+          routerLinkActive="text-accent"
+          class="hover:text-accent transition-colors"
+          >About</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/home"
+          routerLinkActive="text-accent"
+          class="hover:text-accent transition-colors"
+          >Contact</a
+        >
+      </li>
+      <li>
+        <button
+          class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1.5 rounded-md text-sm font-medium transition-colors"
+        >
+          Login
+        </button>
+      </li>
+    </ul>
+
+    <button
+      class="md:hidden flex flex-col justify-center items-center w-6 h-6 space-y-1"
+      (click)="toggleMobileMenu()"
+      #mobileMenuBtn
+    >
+      <span
+        class="w-5 h-0.5 bg-white transition-all duration-300"
+        [class.rotate-45]="isMobileMenuOpen"
+        [class.translate-y-1.5]="isMobileMenuOpen"
+      ></span>
+      <span
+        class="w-5 h-0.5 bg-white transition-all duration-300"
+        [class.opacity-0]="isMobileMenuOpen"
+      ></span>
+      <span
+        class="w-5 h-0.5 bg-white transition-all duration-300"
+        [class.-rotate-45]="isMobileMenuOpen"
+        [class.-translate-y-1.5]="isMobileMenuOpen"
+      ></span>
+    </button>
+  </div>
+
+  <div
+    class="md:hidden overflow-hidden transition-all duration-300 ease-in-out"
+    [class.max-h-0]="!isMobileMenuOpen"
+    [class.max-h-96]="isMobileMenuOpen"
+  >
+    <ul class="flex flex-col space-y-4 pt-4 pb-2">
+      <li>
+        <a
+          routerLink="/home"
+          routerLinkActive="text-accent"
+          class="block hover:text-accent transition-colors"
+          (click)="closeMobileMenu()"
+          >Home</a
+        >
+      </li>
+      <!-- <li><a routerLink="/dashboard" routerLinkActive="text-accent" class="block hover:text-accent transition-colors" (click)="closeMobileMenu()">Dashboard</a></li> -->
+      <li>
+        <a
+          routerLink="/form"
+          routerLinkActive="text-accent"
+          class="block hover:text-accent transition-colors"
+          (click)="closeMobileMenu()"
+          >Form</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/details"
+          routerLinkActive="text-accent"
+          class="block hover:text-accent transition-colors"
+          (click)="closeMobileMenu()"
+          >Details</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/home"
+          routerLinkActive="text-accent"
+          class="block hover:text-accent transition-colors"
+          (click)="closeMobileMenu()"
+          >About</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/home"
+          routerLinkActive="text-accent"
+          class="block hover:text-accent transition-colors"
+          (click)="closeMobileMenu()"
+          >Contact</a
+        >
+      </li>
+      <li class="pt-2">
+        <button
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+        >
+          Login
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
