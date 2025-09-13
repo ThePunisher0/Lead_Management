@@ -7,3 +7,6 @@ body {
   @apply bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300;
   font-family: 'Inter', sans-serif;
 }
+.active-link {
+  @apply font-semibold;
+}
